@@ -37,9 +37,4 @@ public class JobController {
     public ResponseEntity<List<LocationStatistics>> getLocationStatistics() {
         return ResponseEntity.ok(jobService.getLocationStatistics());
     }
-
-    @GetMapping("/footer")
-    public ResponseEntity<String> getString() {
-        return ResponseEntity.ok("Hello world");
-    }
 }
