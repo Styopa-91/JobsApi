@@ -16,6 +16,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/jobs")
 public class JobController {
+
     @Autowired
     private JobService jobService;
 
@@ -35,5 +36,10 @@ public class JobController {
     @GetMapping("/statistics")
     public ResponseEntity<List<LocationStatistics>> getLocationStatistics() {
         return ResponseEntity.ok(jobService.getLocationStatistics());
+    }
+
+    @GetMapping("/footer")
+    public ResponseEntity<String> getString() {
+        return ResponseEntity.ok("Hello world");
     }
 }
