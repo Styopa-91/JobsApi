@@ -31,6 +31,7 @@ jobs:
           application_name: Jobs-api-aws-ebs
           environment_name: Jobs-api-aws-ebs-env
           version_label: ${{ github.run_id }}
+          use_existing_version_if_available: true
           deployment_package: target/JobsApi-0.0.1-SNAPSHOT.jar
         env:
           JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.12-7/x64
