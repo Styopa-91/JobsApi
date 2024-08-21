@@ -3,7 +3,7 @@ name: Deploy to Elastic Beanstalk
 on:
   push:
     branches:
-      - main  # Change this to the branch you want to
+      - main  # Change to your target branch
 
 jobs:
   deploy:
@@ -17,7 +17,7 @@ jobs:
       uses: actions/setup-java@v3
       with:
         java-version: '17'
-        distribution: 'temurin' 
+        distribution: 'temurin'
 
     - name: Build with Maven
       run: mvn clean package
@@ -27,8 +27,8 @@ jobs:
       with:
         aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        application_name: "Jobs-api-aws-ebs"  # Replace with your app name
-        environment_name: "Jobs-api-aws-ebs-env"  # Replace with your environment name
-        version_label: "v${{ github.run_id }}"  # Unique version label
-        region: "eu-north-1"  # Replace with your AWS region
-        zip_file: "target/JobsApi-0.0.1-SNAPSHOT.jar"  # Replace with the path to your jar file
+        region: eu-north-1
+        application_name: Jobs-api-aws-ebs
+        environment_name: Jobs-api-aws-ebs-env
+        version_label: v${{ github.run_id }}
+        deployment_package: target/JobsApi-0.0.1-SNAPSHOT.jar
